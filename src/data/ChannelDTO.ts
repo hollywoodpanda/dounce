@@ -2,19 +2,21 @@
 
 import { SocketInfoDTO } from './SocketInfoDTO'
 
+export type Message = Buffer
+
 export type ErrorCallback = (error: Error) => void 
 
-export type MessageCallback = (msg: string, info: SocketInfoDTO) => void
+export type MessageCallback = (msg: Message, info: SocketInfoDTO) => void
 
 export type Callback = () => void
 
 export type SocketKind = 'udp4' | 'udp6'
 
-export interface ServerDTO {
+export interface ChannelDTO {
 
     readonly kind:  SocketKind
 
-    readonly port: number
+    readonly info: SocketInfoDTO
 
     readonly onError: ErrorCallback
 
@@ -23,7 +25,5 @@ export interface ServerDTO {
     readonly onListening: Callback
 
     readonly onClose: Callback
-
-    readonly send: MessageCallback
 
 }
