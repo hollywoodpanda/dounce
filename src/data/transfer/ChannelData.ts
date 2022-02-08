@@ -1,22 +1,22 @@
 'use strict'
 
-import { SocketInfoDTO } from './SocketInfoDTO'
+import { SocketInfoData } from './SocketInfoData'
 
 export type Message = Buffer
 
 export type ErrorCallback = (error: Error) => void 
 
-export type MessageCallback = (msg: Message, info: SocketInfoDTO) => void
+export type MessageCallback = (msg: Message, info: SocketInfoData) => void
 
 export type Callback = () => void
 
 export type SocketKind = 'udp4' | 'udp6'
 
-export interface ChannelDTO {
+export interface ChannelData {
 
     readonly kind:  SocketKind
 
-    readonly info: SocketInfoDTO
+    readonly info: SocketInfoData
 
     readonly onError: ErrorCallback
 

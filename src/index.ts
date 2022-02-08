@@ -1,14 +1,14 @@
 'use strict'
 
-import { SocketInfoDTO } from './data/SocketInfoDTO'
-import { Channel } from './service/Channel'
-import { Server } from './service/Server'
+import { SocketInfoData } from './data/transfer/SocketInfoData'
+import { Channel } from './core/Channel'
+import { Server } from './core/Server'
 
 const server = new Server({
     kind: 'udp6',
     info: {port: 2223, address: 'localhost'},
     onError: (error: Error) => console.error(error),
-    onMessage: (msg: Buffer, info: SocketInfoDTO) => {
+    onMessage: (msg: Buffer, info: SocketInfoData) => {
         console.info('Server received!', msg.toString(), info)
         server.send(
             Buffer.from(
@@ -27,7 +27,7 @@ const client = new Channel({
     kind: 'udp6',
     info: {port: 2221, address: 'localhost'},
     onError: (error: Error) => console.error(error),
-    onMessage: (msg: Buffer, info: SocketInfoDTO) => {
+    onMessage: (msg: Buffer, info: SocketInfoData) => {
         console.info(
             'Message received', 
             msg.toString(), 

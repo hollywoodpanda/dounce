@@ -1,19 +1,19 @@
 'use strict'
 
 import dgram, { Socket } from 'dgram'
-import { ChannelDTO } from '../data/ChannelDTO'
-import { SocketInfoDTO } from '../data/SocketInfoDTO'
+import { ChannelData } from '../data/transfer/ChannelData'
+import { SocketInfoData } from '../data/transfer/SocketInfoData'
 import { Logger } from '../util/Logger'
 
 export class Channel {
 
     protected logger: Logger
 
-    readonly data: ChannelDTO
+    readonly data: ChannelData
 
     protected socket!: Socket
 
-    constructor (data: ChannelDTO) {
+    constructor (data: ChannelData) {
         this.data = data
         this.logger = new Logger('CHANNEL')
         this.startSocket()
@@ -29,7 +29,7 @@ export class Channel {
         this.logger.info('Socket started')
     }
 
-    send (message: Buffer, to: SocketInfoDTO) {
+    send (message: Buffer, to: SocketInfoData) {
         this.logger.info(`Sending message "${message.toString()}" to`, to)
         this.socket.send(message, to.port, to.address)
     }

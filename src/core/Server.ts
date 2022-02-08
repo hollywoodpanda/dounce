@@ -11,6 +11,6 @@ export class Server extends Channel {
             this.data.info.address
         )
 
-    }   
+    }
 
 }

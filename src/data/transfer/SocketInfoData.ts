@@ -1,6 +1,6 @@
 'use strict'
 
-export interface SocketInfoDTO {
+export interface SocketInfoData {
     readonly address: string
     readonly port: number
 }
