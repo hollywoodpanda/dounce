@@ -1,9 +1,9 @@
 'use strict'
 
 import dgram, { Socket } from 'dgram'
-import { ChannelData } from '../data/transfer/ChannelData'
-import { SocketInfoData } from '../data/transfer/SocketInfoData'
-import { Logger } from '../util/Logger'
+import { ChannelData } from '../../data/comm/ChannelData'
+import { SocketInfoData } from '../../data/comm/SocketInfoData'
+import { Logger } from '../../util/Logger'
 
 export class Channel {
 

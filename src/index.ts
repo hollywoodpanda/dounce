@@ -1,8 +1,8 @@
 'use strict'
 
-import { SocketInfoData } from './data/transfer/SocketInfoData'
-import { Channel } from './core/Channel'
-import { Server } from './core/Server'
+import { SocketInfoData } from './data/comm/SocketInfoData'
+import { Channel } from './core/comm/Channel'
+import { Server } from './core/comm/Server'
 
 const server = new Server({
     kind: 'udp6',
