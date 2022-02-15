@@ -40,6 +40,6 @@ const client = new Channel({
 
 setInterval(() => {
 
-    client.send(Buffer.from('TOMA NO CU RAPA!'), server.data.info)
+    client.send(Buffer.from('Mas que lindo dia, não é mesmo?'), server.data.info)
 
 }, 1000)
